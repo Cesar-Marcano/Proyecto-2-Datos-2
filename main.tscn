@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://c4ug4p38xgi5k"]
+[gd_scene load_steps=2 format=3 uid="uid://c4ug4p38xgi5k"]
+
+[ext_resource type="Script" path="res://Label.cs" id="1_vi23j"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,3 +17,4 @@ offset_top = 328.0
 offset_right = 597.0
 offset_bottom = 351.0
 text = "hola"
+script = ExtResource("1_vi23j")
