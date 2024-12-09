@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+public class LinkedListCrud<T>
+{
+    private LinkedList<T> _items;
+
+    public LinkedListCrud()
+    {
+        _items = new LinkedList<T>();
+    }
+
+    public void Add(T item)
+    {
+        _items.AddLast(item);
+    }
+
+    public IEnumerable<T> GetAll()
+    {
+        return _items;
+    }
+
+    public T Get(Func<T, bool> predicate)
+    {
+        foreach (var item in _items)
+        {
+            if (predicate(item))
+            {
+                return item;
+            }
+        }
+        return default;
+    }
+
+    public bool Update(Func<T, bool> predicate, T newItem)
+    {
+        var current = _items.First;
+
+        while (current != null)
+        {
+            if (predicate(current.Value))
+            {
+                current.Value = newItem;
+                return true;
+            }
+            current = current.Next;
+        }
+
+        return false;
+    }
+
+    public bool Delete(Func<T, bool> predicate)
+    {
+        var current = _items.First;
+
+        while (current != null)
+        {
+            if (predicate(current.Value))
+            {
+                _items.Remove(current);
+                return true;
+            }
+            current = current.Next;
+        }
+
+        return false;
+    }
+}

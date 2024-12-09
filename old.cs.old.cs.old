@@ -1,0 +1,87 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Crear listas enlazadas para almacenar productos y clientes
+        LinkedList<Producto> productos = new LinkedList<Producto>();
+        LinkedList<Cliente> clientes = new LinkedList<Cliente>();
+
+        // Agregar productos a la lista enlazada
+        productos.AddLast(new Producto("Cod1928", "Jabón Protex", "Jabón de baño", "Cuidado Personal\t", 0.5m, 1m)); 
+        productos.AddLast(new Producto("Cod1122", "Champú Nivea", "Champú para personas", "Cuidado Personal", 2.3m, 4m));
+        productos.AddLast(new Producto("Cod1281", "Queso blanco", "Queso blanco criollo", "Charcuteria\t", 2m, 5m));
+        productos.AddLast(new Producto("Cod2211", "Jamon de pavo", "Jamon de pavo nacional", "Charcuteria\t", 4m, 6.5m));
+        productos.AddLast(new Producto("Cod1255", "Crema cero", "crema para bebes", "cuidado personal", 3m, 5m));
+        productos.AddLast(new Producto("Cod9922", "Vino Blanco", "Vino import de Francia", "bebidas alcoholicas", 10m, 15m));
+        productos.AddLast(new Producto("Cod3322", "Carne Economica","Carne Nacional bcosto", "Charcuteria\t", 3m, 5m));
+        productos.AddLast(new Producto("Cod1099", "Cerveza Polar", "cerveza nacional", "bebidas alcoholicas", 0.3m, 0.5m));
+        productos.AddLast(new Producto("Cod3811", "lavaplatosaxion", "lavaplatos hogar", "hogar y limpieza", 2m, 4m));
+        productos.AddLast(new Producto("Cod1966", "jabon lix", "jabon de baño\t", "cuidado personal", 1m, 1.5m));
+        productos.AddLast(new Producto("Cod9977", "jabon azul", "jabon para lavar", "hogar y limpieza", 0.5m, 1m));
+        productos.AddLast(new Producto("Cod1234", "limpia ventanas", "product.limpiavidrios", "hogar y limpieza", 2m, 3m));
+        // Agregar clientes a la lista enlazada
+        clientes.AddLast(new Cliente("25929122", "María", "Gómez", "\tCalle el Limón", "4125551111", 50m));
+        clientes.AddLast(new Cliente("21555666", "Juan", "López", "\tPorlamar", "4147778888", 45m));
+        clientes.AddLast(new Cliente("14123456", "Luisa", "González", "San Juan", "4129991111", 55m));
+        clientes.AddLast(new Cliente("26123123", "Luis", "Perez", "Calle 5 de julio", "4125553333", 60m));
+        clientes.AddLast(new Cliente("15789789", "Ana", "Marcano\t", "La asuncion", "4148885555", 40m));
+        // Mostrar productos
+        Console.WriteLine("Productos:");
+        Console.WriteLine("Código\tNombre   \tDescripción  \t\tCategoría   \tPrecio Costo    Precio Venta");
+        foreach (var producto in productos)
+        {
+            Console.WriteLine($"{producto.Codigo}\t{producto.Nombre}\t{producto.Descripcion}\t{producto.Categoria}\t{producto.PrecioCosto}\t{producto.PrecioVenta}");
+        }
+
+        // Mostrar clientes
+        Console.WriteLine("\nClientes:");
+        Console.WriteLine("Cédula\t\tNombre\tApellido\tDirección\tTeléfono\tTotal Facturado");
+        foreach (var cliente in clientes)
+        {
+            Console.WriteLine($"{cliente.Cedula}\t{cliente.Nombre}\t{cliente.Apellido}\t{cliente.Direccion}\t{cliente.Telefono}\t{cliente.TotalFacturado}");
+        }
+    }
+}
+
+public class Producto
+{
+    public string Codigo { get; set; }
+    public string Nombre { get; set; }
+    public string Descripcion { get; set; }
+    public string Categoria { get; set; }
+    public decimal PrecioCosto { get; set; }
+    public decimal PrecioVenta { get; set; }
+
+    public Producto(string codigo, string nombre, string descripcion, string categoria, decimal precioCosto, decimal precioVenta)
+    {
+        Codigo = codigo;
+        Nombre = nombre;
+        Descripcion = descripcion;
+        Categoria = categoria;
+        PrecioCosto = precioCosto;
+        PrecioVenta = precioVenta;
+    }
+}
+
+public class Cliente
+{
+    public string Cedula { get; set; }
+    public string Nombre { get; set; }
+    public string Apellido { get; set; }
+    public string Direccion { get; set; }
+    public string Telefono { get; set; }
+    public decimal TotalFacturado { get; set; }
+
+    public Cliente(string cedula, string nombre, string apellido, string direccion, string telefono, decimal totalFacturado)
+    {
+        Cedula = cedula;
+        Nombre = nombre;
+        Apellido = apellido;
+        Direccion = direccion;
+        Telefono = telefono;
+        TotalFacturado = totalFacturado;
+    }
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4ug4p38xgi5k"]
+[gd_scene load_steps=3 format=3 uid="uid://c4ug4p38xgi5k"]
 
 [ext_resource type="Script" path="res://Label.cs" id="1_vi23j"]
 
@@ -10,7 +10,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="MyLabel" type="Label" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 557.0
 offset_top = 328.0
